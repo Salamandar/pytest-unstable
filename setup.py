@@ -1,19 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import codecs
+from pathlib import Path
 from setuptools import setup
-
-
-def read(fname):
-    file_path = os.path.join(os.path.dirname(__file__), fname)
-    return codecs.open(file_path, encoding='utf-8').read()
-
 
 setup(
     name='pytest-unstable',
-    version='0.2.0',
+    version='0.2.1',
     author='Salamandar',
     author_email='felix@piedallu.me',
     maintainer='Salamandar',
@@ -21,7 +14,8 @@ setup(
     license='MIT',
     url='https://github.com/Salamandar/pytest-unstable',
     description='Set a test as unstable to return 0 even if it failed',
-    long_description=read('README.rst'),
+    long_description=(Path(__file__).parent /'README.rst').read_text(),
+    long_description_content_type='text/x-rst',
     py_modules=['pytest_unstable'],
     python_requires='>=3.5',
     install_requires=['pytest>=3.5.0'],
